@@ -39,7 +39,7 @@ export default function Page() {
                     </div>
 
                     <Link
-                        href="/learn"
+                        href="/auth"
                         className="px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition font-medium"
                     >
                         Start Learning
@@ -63,7 +63,7 @@ export default function Page() {
 
                     <div className="flex items-center justify-center gap-4 mb-12">
                         <Link
-                            href="/learn"
+                            href="/auth"
                             className="px-8 py-4 bg-white text-black rounded-xl hover:bg-gray-200 transition flex items-center gap-2 font-medium"
                         >
                             Start Learning <ArrowRight className="w-5 h-5" />
