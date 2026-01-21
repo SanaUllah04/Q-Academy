@@ -1,15 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Search, Bell, Calendar, Filter } from 'lucide-react';
+import { ArrowRight, Search, Bell, Calendar, Filter, BookOpen, Lightbulb, Rocket, FileText, Info, Star, GraduationCap, Newspaper, BarChart, Clock, Sparkles } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
-const routes = [
-    { name: 'About', path: '/about' },
-    { name: 'Articles', path: '/articles' },
-    { name: 'Concepts', path: '/concepts' },
-    { name: 'Learn', path: '/learn' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Research Papers', path: '/research-papers' },
-    { name: 'Theory', path: '/theory' },
+const routes: { name: string; path: string; icon: LucideIcon }[] = [
+    { name: 'About', path: '/about', icon: Info },
+    { name: 'Articles', path: '/articles', icon: Newspaper },
+    { name: 'Concepts', path: '/concepts', icon: Lightbulb },
+    { name: 'Learn', path: '/learn', icon: GraduationCap },
+    { name: 'Projects', path: '/projects', icon: Rocket },
+    { name: 'Research Papers', path: '/research-papers', icon: FileText },
+    { name: 'Theory', path: '/theory', icon: BookOpen },
 ];
 
 export default function Page() {
@@ -22,7 +23,7 @@ export default function Page() {
                         <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                             <span className="text-black font-bold text-lg">Q</span>
                         </div>
-                        <span className="text-xl font-semibold text-white">Q-Academy</span>
+                        <span className="text-xl font-semibold text-white">Academy</span>
                     </div>
 
                     <div className="hidden lg:flex items-center gap-4">
@@ -79,36 +80,44 @@ export default function Page() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                         <Link
                             href="/articles"
-                            className="bg-black border border-white rounded-xl p-6 hover:bg-white/5 transition group"
+                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
                         >
-                            <div className="text-3xl mb-2">📰</div>
+                            <div className="mb-4 text-white">
+                                <Newspaper className="w-8 h-8" strokeWidth={1} />
+                            </div>
                             <h3 className="font-semibold text-white group-hover:underline transition">Articles</h3>
                             <p className="text-sm text-gray-500 mt-1">Read latest insights</p>
                         </Link>
 
                         <Link
                             href="/concepts"
-                            className="bg-black border border-white rounded-xl p-6 hover:bg-white/5 transition group"
+                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
                         >
-                            <div className="text-3xl mb-2">💡</div>
+                            <div className="mb-4 text-white">
+                                <Lightbulb className="w-8 h-8" strokeWidth={1} />
+                            </div>
                             <h3 className="font-semibold text-white group-hover:underline transition">Concepts</h3>
                             <p className="text-sm text-gray-500 mt-1">Core principles</p>
                         </Link>
 
                         <Link
                             href="/projects"
-                            className="bg-black border border-white rounded-xl p-6 hover:bg-white/5 transition group"
+                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
                         >
-                            <div className="text-3xl mb-2">🚀</div>
+                            <div className="mb-4 text-white">
+                                <Rocket className="w-8 h-8" strokeWidth={1} />
+                            </div>
                             <h3 className="font-semibold text-white group-hover:underline transition">Projects</h3>
                             <p className="text-sm text-gray-500 mt-1">Hands-on work</p>
                         </Link>
 
                         <Link
                             href="/theory"
-                            className="bg-black border border-white rounded-xl p-6 hover:bg-white/5 transition group"
+                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
                         >
-                            <div className="text-3xl mb-2">📚</div>
+                            <div className="mb-4 text-white">
+                                <BookOpen className="w-8 h-8" strokeWidth={1} />
+                            </div>
                             <h3 className="font-semibold text-white group-hover:underline transition">Theory</h3>
                             <p className="text-sm text-gray-500 mt-1">Deep dive</p>
                         </Link>
@@ -132,18 +141,10 @@ export default function Page() {
                                     <Link
                                         key={route.path}
                                         href={route.path}
-                                        className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition cursor-pointer text-gray-300 hover:text-white"
+                                        className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition cursor-pointer text-gray-300 hover:text-white group"
                                     >
-                                        <span className="text-lg">
-                                            {route.name === 'About' && 'ℹ️'}
-                                            {route.name === 'Articles' && '📰'}
-                                            {route.name === 'Concepts' && '💡'}
-                                            {route.name === 'Learn' && '📖'}
-                                            {route.name === 'Projects' && '🚀'}
-                                            {route.name === 'Research Papers' && '📄'}
-                                            {route.name === 'Theory' && '📚'}
-                                        </span>
-                                        <span className="text-sm">{route.name}</span>
+                                        <route.icon className="w-5 h-5 text-gray-500 group-hover:text-white transition" />
+                                        <span className="text-sm font-medium">{route.name}</span>
                                     </Link>
                                 ))}
                             </div>
@@ -167,8 +168,10 @@ export default function Page() {
                                         Q
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-white">Quantum Learner</h3>
-                                        <p className="text-sm text-gray-500">Welcome to your learning dashboard 👋</p>
+                                        <h3 className="font-semibold text-white flex items-center gap-2">
+                                            Quantum Learner
+                                        </h3>
+                                        <p className="text-sm text-gray-500">Welcome to your learning dashboard</p>
                                     </div>
                                 </div>
 
@@ -198,7 +201,7 @@ export default function Page() {
                                 <div className="bg-black border border-white rounded-xl p-4">
                                     <div className="flex items-center justify-between mb-4">
                                         <h4 className="font-semibold text-white flex items-center gap-2">
-                                            <span className="text-white">📖</span> Learning Progress
+                                            <BarChart className="w-4 h-4" /> Learning Progress
                                         </h4>
                                         <Link href="/learn" className="text-sm text-gray-400 hover:text-white">See All</Link>
                                     </div>
@@ -230,7 +233,7 @@ export default function Page() {
                                 <div className="bg-black border border-white rounded-xl p-4">
                                     <div className="flex items-center justify-between mb-4">
                                         <h4 className="font-semibold text-white flex items-center gap-2">
-                                            <span className="text-white">⭐</span> Featured Content
+                                            <Sparkles className="w-4 h-4" /> Featured Content
                                         </h4>
                                         <Link href="/articles" className="text-sm text-gray-400 hover:text-white">See All</Link>
                                     </div>
@@ -244,9 +247,13 @@ export default function Page() {
                                             <div className="flex items-center gap-2 mb-3">
                                                 <span className="text-sm text-gray-500">Quantum Computing Advances</span>
                                             </div>
-                                            <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-                                                <span>⭐⭐⭐⭐⭐</span>
-                                                <span>5.0 rating</span>
+                                            <div className="flex items-center gap-1 text-xs text-gray-400 mb-2">
+                                                <div className="flex">
+                                                    {[1, 2, 3, 4, 5].map((i) => (
+                                                        <Star key={i} className="w-3 h-3 fill-white text-white" />
+                                                    ))}
+                                                </div>
+                                                <span className="ml-1">5.0 rating</span>
                                             </div>
                                             <div className="text-xs text-gray-500 mb-2">Published</div>
                                             <div className="text-sm text-gray-400 mb-3">January 15, 2026</div>
@@ -281,7 +288,7 @@ export default function Page() {
                                 <div className="bg-black border border-white rounded-xl p-4">
                                     <div className="flex items-center justify-between mb-4">
                                         <h4 className="font-semibold text-white flex items-center gap-2">
-                                            <span>📅</span> Study Schedule
+                                            <Calendar className="w-4 h-4" /> Study Schedule
                                         </h4>
                                         <button className="text-sm text-gray-400 hover:text-white">See All</button>
                                     </div>
