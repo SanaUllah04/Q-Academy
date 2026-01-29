@@ -7,6 +7,7 @@ export default function Theory() {
 
     const topics = [
         { id: "SuperPosition", label: "SuperPosition" },
+        { id: "Quantization", label: "Quantization" },
         { id: "Entanglement", label: "Quantum Entanglement" },
         { id: "Qubits", label: "Qubits & Gates" },
         { id: "Interference", label: "Quantum Interference" },
@@ -25,8 +26,8 @@ export default function Theory() {
                                 <button
                                     onClick={() => setActiveTopic(topic.id)}
                                     className={`text-left w-full py-3 px-4 rounded-lg transition-all duration-300 ${activeTopic === topic.id
-                                            ? "bg-white text-black font-bold shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-                                            : "text-gray-400 hover:text-white hover:bg-white/10"
+                                        ? "bg-white text-black font-bold shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+                                        : "text-gray-400 hover:text-white hover:bg-white/10"
                                         }`}
                                 >
                                     {topic.label}
@@ -166,7 +167,191 @@ export default function Theory() {
                     </article>
                 )}
 
-                {activeTopic !== "SuperPosition" && (
+                {activeTopic === "Quantization" && (
+                    <article className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <header className="border-b border-white/20 pb-8 break-words">
+                            <h1 className="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                Quantization: The Quantum Rulebook of Nature
+                            </h1>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In classical computing, information is represented using bits — 0 and 1 — stored as electrical signals. In quantum computing, information is stored using quantum states, which rely on fundamental principles of quantum mechanics. One of the most important of these principles is <span className="text-white font-semibold">quantization</span>—the idea that physical quantities such as energy, momentum, and angular momentum exist only in discrete amounts.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300 mt-4">
+                                This chapter explores how quantization emerges from quantum mechanics, how particles are described using wavefunctions, and why this concept is essential for understanding modern quantum technologies.
+                            </p>
+                        </header>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">1. Probability Amplitude and the Birth of Quantum Uncertainty</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Unlike classical physics, which is deterministic, quantum mechanics is inherently probabilistic. Instead of predicting exact particle positions and trajectories, quantum theory predicts probability distributions.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                At the heart of this description lies the wavefunction, denoted by:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                ψ(x,t)
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                The wavefunction contains all the measurable information about a quantum system. However, it is not directly observable. What we actually measure is the probability density:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                |ψ(x,t)|²
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This tells us the likelihood of finding a particle at a particular position and time.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This interpretation, known as the Born rule, was introduced by physicist Max Born and represents a fundamental departure from classical thinking. In the quantum world, uncertainty is not due to limited measurement accuracy—it is a fundamental feature of nature itself.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">2. The Schrödinger Equation: The Engine of Quantum Motion</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                If particles behave like waves, they must obey a wave equation. This role is fulfilled by the time-dependent Schrödinger equation, developed by Erwin Schrödinger:
+                            </p>
+                            <div className="bg-white/5 p-6 rounded-lg font-mono text-center text-xl text-white border border-white/10 overflow-x-auto">
+                                iℏ ∂ψ(x,t)/∂t = [ -ℏ²/(2m) ∂²/∂x² + V(x,t) ] ψ(x,t)
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This equation governs how quantum states evolve over time. It is the quantum analogue of Newton’s laws of motion and forms the backbone of non-relativistic quantum mechanics.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Once the Schrödinger equation is known, the behavior of nearly any quantum system can, in principle, be predicted.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">3. Free Particles and Wave Solutions</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                For a free particle, where no external forces act and the potential energy V(x,t) = 0, the Schrödinger equation simplifies significantly. Its solutions take the form of traveling waves, confirming that particles like electrons exhibit wave-like behavior.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                These solutions reveal a direct connection between momentum and wavelength, and between energy and frequency, reinforcing the idea of wave-particle duality.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">4. The Hamiltonian: Total Energy Operator</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantum mechanics describes physical quantities using operators. The operator corresponding to total energy is called the Hamiltonian, denoted Ĥ.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                The Schrödinger equation can be compactly written as:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                Ĥψ = iℏ ∂ψ/∂t
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                The Hamiltonian contains both kinetic and potential energy terms and fully describes the dynamics of a quantum system. Determining the Hamiltonian is typically the first step in solving any quantum problem.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">5. Stationary States and the Time-Independent Schrödinger Equation</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                If the potential energy does not depend on time, the Schrödinger equation can be separated into spatial and temporal parts. This leads to the time-independent Schrödinger equation:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                Ĥψ = Eψ
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This is an eigenvalue equation, where the allowed energies of the system appear as discrete eigenvalues. Each solution corresponds to a stationary state, meaning the probability distribution does not change with time.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">6. The Particle in a Box: A Window into Quantization</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                One of the most illuminating examples of quantization is the infinite quantum well, often called the particle in a box.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Here, a particle is trapped inside a region of width L with infinitely high potential walls. Solving the Schrödinger equation under these boundary conditions yields:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>Discrete wavefunctions</li>
+                                <li>Discrete momentum values</li>
+                                <li>Discrete energy levels</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                The allowed energy values are:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                E_n = (n²π²ℏ²) / (2mL²) , for n = 1, 2, 3, …
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This means the particle cannot possess arbitrary energy — only specific, quantized energy levels are permitted.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">7. Why Quantization Is Invisible in Everyday Life</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                For macroscopic objects, the spacing between energy levels is extremely small, making energy appear continuous. However, at atomic scales — especially for electrons confined to nanometer-scale regions — energy separations become large enough to measure.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This explains:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>Atomic emission spectra</li>
+                                <li>Laser operation</li>
+                                <li>Semiconductor band structures</li>
+                                <li>Quantum dot technologies</li>
+                            </ul>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">8. Orthonormal States: The Mathematical Backbone of Quantum Computing</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                The allowed quantum states form an orthonormal basis, meaning:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>Each state is normalized (total probability equals 1).</li>
+                                <li>Different states are mutually orthogonal (completely distinct).</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This mathematical structure is essential for:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>Quantum measurement theory</li>
+                                <li>Qubit representation</li>
+                                <li>Quantum algorithms</li>
+                                <li>Quantum error correction</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In quantum computing, these discrete energy states serve as logical basis states — the foundation of qubits.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">9. Why Quantization Matters for Quantum Computing</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantization enables us to:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>Represent bits using energy levels</li>
+                                <li>Manipulate quantum states precisely</li>
+                                <li>Engineer artificial atoms such as quantum dots, superconducting circuits, and trapped ions</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                These systems form the hardware of modern quantum processors.
+                            </p>
+                        </section>
+
+                        <section className="py-8 border-t border-white/20 mt-12">
+                            <h2 className="text-3xl font-bold text-white mb-4">Conclusion</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantization is one of the defining features of quantum mechanics, revealing that nature operates in discrete steps rather than smooth continuums. From atomic energy levels to qubit states, quantization underpins nearly every quantum technology in use today.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300 mt-4">
+                                Understanding quantization is not just a theoretical exercise — it is the gateway to mastering quantum computing, nanotechnology, and next-generation electronics.
+                            </p>
+                        </section>
+                    </article>
+                )}
+
+                {activeTopic !== "SuperPosition" && activeTopic !== "Quantization" && (
                     <div className="flex flex-col items-center justify-center h-full space-y-4 opacity-50">
                         <div className="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center">
                             <span className="text-2xl">?</span>
