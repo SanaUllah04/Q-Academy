@@ -8,6 +8,7 @@ export default function Theory() {
     const topics = [
         { id: "SuperPosition", label: "SuperPosition" },
         { id: "Quantization", label: "Quantization" },
+        { id: "Vectors", label: "Vectors & Vector Spaces" },
         { id: "Entanglement", label: "Quantum Entanglement" },
         { id: "Qubits", label: "Qubits & Gates" },
         { id: "Interference", label: "Quantum Interference" },
@@ -351,7 +352,179 @@ export default function Theory() {
                     </article>
                 )}
 
-                {activeTopic !== "SuperPosition" && activeTopic !== "Quantization" && (
+                {activeTopic === "Vectors" && (
+                    <article className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <header className="border-b border-white/20 pb-8 break-words">
+                            <h1 className="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                Vectors & Vector Spaces
+                            </h1>
+                            <p className="text-2xl text-gray-300 font-light leading-relaxed">
+                                The Foundation of Quantum State Description
+                            </p>
+                        </header>
+
+                        <section className="space-y-6">
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                At its core, quantum computing is nothing more than the manipulation of vectors. Every quantum state is a vector, every quantum gate is an operation on vectors, and every computation is a carefully designed sequence of vector transformations in a high-dimensional space.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                If this sounds abstract, don&apos;t worry — the mathematics behind quantum computing builds directly on ideas you already understand from basic vector algebra.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">1. Vectors as Quantum States</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In classical physics and computing, we deal with numbers. In quantum mechanics, we deal with vectors. A quantum state is represented as a vector in a vector space, often called a state space or Hilbert space.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                For example, on a two-dimensional plane, a vector can be described using its components along the x- and y-axes. A vector with x-component 3 and y-component 2 can be written as:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>A geometric arrow</li>
+                                <li>A linear combination of basis vectors</li>
+                                <li>A column vector</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                All of these representations describe the same vector. The choice of notation is simply a matter of convenience.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In quantum mechanics, this vector is written using Dirac&apos;s bra–ket notation:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                |v⟩ = 3|x⟩ + 2|y⟩
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Here, the vector is expressed as a superposition of basis states — a concept that should now feel familiar from quantum superposition.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">2. Basis Vectors: Choosing a Coordinate System</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                A basis is a set of vectors that allows us to describe every vector in a given space as a linear combination of those basis vectors.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In two dimensions, the familiar basis vectors are:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li><strong className="text-white">x̂</strong>: unit vector along the x-axis</li>
+                                <li><strong className="text-white">ŷ</strong>: unit vector along the y-axis</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                However, the choice of basis is not unique.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                If we choose new basis vectors that are half the length of the original ones, the same physical vector will have different numerical components, even though the vector itself has not changed.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This highlights an important lesson for quantum computing: <span className="text-white font-semibold">Numbers alone do not define a quantum state — the basis matters.</span>
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This is exactly like counting eggs: &ldquo;1 dozen eggs&rdquo; and &ldquo;12 individual eggs&rdquo; are different numbers describing the same quantity — just different bases.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">3. Quantum States as Superpositions</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Once a basis is chosen, any quantum state can be written as a superposition of basis states.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                For example, consider a quantum system whose basis states are |spin up⟩ and |spin down⟩.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Even without knowing the physical meaning of spin, we can still work mathematically. A general state can be written as:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                |ψ⟩ = 3|spin up⟩ + 2|spin down⟩
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This is exactly how qubits are represented:
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                |ψ⟩ = α|0⟩ + β|1⟩
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantum computing relies on this vector-based description, not on classical intuition.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">4. Vector Spaces: Living in the Same Universe</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                A vector space is the collection of all vectors that can be formed from a given set of basis vectors.
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>The x–y plane forms one vector space</li>
+                                <li>Spin states form another</li>
+                                <li>Qubit states form yet another</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Vectors from different spaces cannot be mixed unless a common basis is defined.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This explains why:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>Eggs cannot be counted using apples</li>
+                                <li>Japanese books cannot be written using only English letters</li>
+                                <li>Spin states cannot be described using x–y coordinates</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In everyday language, when people say &ldquo;we&apos;re not on the same page&rdquo;, they are unknowingly describing different vector spaces.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">5. Same Numbers, Different Spaces</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                An important subtlety in quantum mechanics is that identical numerical vectors can represent completely different physical states if they belong to different vector spaces.
+                            </p>
+                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                [3, 2]ᵀ
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This column could represent:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li>A spatial vector</li>
+                                <li>A spin state</li>
+                                <li>A qubit state</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                The numbers are meaningless without knowing the basis and vector space they belong to.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">6. Why This Matters in Quantum Computing</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantum gates are nothing more than linear transformations applied to vectors.
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
+                                <li><strong className="text-white">Preparing a qubit</strong> → choosing an initial vector</li>
+                                <li><strong className="text-white">Applying a quantum gate</strong> → rotating the vector</li>
+                                <li><strong className="text-white">Measuring</strong> → projecting the vector onto a basis</li>
+                            </ul>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantum algorithms succeed because they carefully manipulate vectors in high-dimensional spaces to amplify correct answers and suppress incorrect ones.
+                            </p>
+                        </section>
+
+                        <section className="py-8 border-t border-white/20 mt-12">
+                            <h2 className="text-3xl font-bold text-white mb-4">Conclusion</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Vectors are the fundamental language of quantum computing. Once you understand that quantum states are vectors, bases define meaning, and quantum gates are transformations, the subject becomes far less mysterious.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300 mt-4">
+                                Quantum mechanics may challenge our intuition, but its mathematics is beautifully consistent — built on the same vector concepts we already know, just extended into richer and higher-dimensional spaces.
+                            </p>
+                        </section>
+                    </article>
+                )}
+
+                {activeTopic !== "SuperPosition" && activeTopic !== "Quantization" && activeTopic !== "Vectors" && (
                     <div className="flex flex-col items-center justify-center h-full space-y-4 opacity-50">
                         <div className="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center">
                             <span className="text-2xl">?</span>
