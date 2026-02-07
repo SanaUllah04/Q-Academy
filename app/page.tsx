@@ -6,8 +6,7 @@ import { LucideIcon } from 'lucide-react';
 const routes: { name: string; path: string; icon: LucideIcon }[] = [
     { name: 'About', path: '/about', icon: Info },
     { name: 'Articles', path: '/articles', icon: Newspaper },
-    { name: 'Concepts', path: '/concepts', icon: Lightbulb },
-    { name: 'Learn', path: '/learn', icon: GraduationCap },
+    { name: 'Code', path: '/code', icon: GraduationCap },
     { name: 'Projects', path: '/projects', icon: Rocket },
     { name: 'Research Papers', path: '/research-papers', icon: FileText },
     { name: 'Theory', path: '/theory', icon: BookOpen },
@@ -77,7 +76,7 @@ export default function Page() {
                     </div>
 
                     {/* Quick Access Cards */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
                         <Link
                             href="/articles"
                             className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
@@ -87,17 +86,6 @@ export default function Page() {
                             </div>
                             <h3 className="font-semibold text-white group-hover:underline transition">Articles</h3>
                             <p className="text-sm text-gray-500 mt-1">Read latest insights</p>
-                        </Link>
-
-                        <Link
-                            href="/concepts"
-                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
-                        >
-                            <div className="mb-4 text-white">
-                                <Lightbulb className="w-8 h-8" strokeWidth={1} />
-                            </div>
-                            <h3 className="font-semibold text-white group-hover:underline transition">Concepts</h3>
-                            <p className="text-sm text-gray-500 mt-1">Core principles</p>
                         </Link>
 
                         <Link
@@ -187,7 +175,7 @@ export default function Page() {
                                         <Calendar className="w-5 h-5 text-gray-400" />
                                     </button>
                                     <Link
-                                        href="/learn"
+                                        href="/code"
                                         className="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition font-medium text-sm"
                                     >
                                         + New Course
@@ -203,7 +191,7 @@ export default function Page() {
                                         <h4 className="font-semibold text-white flex items-center gap-2">
                                             <BarChart className="w-4 h-4" /> Learning Progress
                                         </h4>
-                                        <Link href="/learn" className="text-sm text-gray-400 hover:text-white">See All</Link>
+                                        <Link href="/code" className="text-sm text-gray-400 hover:text-white">See All</Link>
                                     </div>
                                     <div className="space-y-3">
                                         <div>
