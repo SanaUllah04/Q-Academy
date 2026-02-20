@@ -59,7 +59,7 @@ export default function Code() {
                         <section className="space-y-6">
                             <h2 className="text-3xl font-bold text-white">2. Hello World: Your First Quantum Circuit</h2>
                             <p className="text-lg leading-relaxed text-gray-300">
-                                In quantum computing, "Hello World" is creating a single qubit, leaving it in its default state |0⟩, and measuring it.
+                                In quantum computing, &quot;Hello World&quot; is creating a single qubit, leaving it in its default state |0⟩, and measuring it.
                             </p>
 
                             <div className="pl-6 border-l-2 border-white/20 space-y-4">
@@ -127,8 +127,8 @@ print(f"Superposition Results: {counts_super}")`}</pre>
                             <div className="pl-6 border-l-2 border-white/20 space-y-4">
                                 <h3 className="text-2xl font-semibold text-white">Explanation:</h3>
                                 <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
-                                    <li><strong className="text-white">qc.h(0)</strong>: This rotates the qubit's state.</li>
-                                    <li><strong className="text-white">Result</strong>: You will see roughly <code className="bg-white/10 px-2 py-1 rounded">{'{"0": 500, "1": 500}'}</code>. The qubit is now a "fair coin flip," representing a true random distribution.</li>
+                                    <li><strong className="text-white">qc.h(0)</strong>: This rotates the qubit&apos;s state.</li>
+                                    <li><strong className="text-white">Result</strong>: You will see roughly <code className="bg-white/10 px-2 py-1 rounded">{'{"0": 500, "1": 500}'}</code>. The qubit is now a &quot;fair coin flip,&quot; representing a true random distribution.</li>
                                 </ul>
                             </div>
                         </section>
@@ -143,7 +143,7 @@ print(f"Superposition Results: {counts_super}")`}</pre>
                                 <h3 className="text-2xl font-semibold text-white">The Logic:</h3>
                                 <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
                                     <li>Put Qubit 0 into superposition (H gate).</li>
-                                    <li>Use Qubit 0 as a "control" to flip Qubit 1 (CNOT gate).</li>
+                                    <li>Use Qubit 0 as a &quot;control&quot; to flip Qubit 1 (CNOT gate).</li>
                                 </ul>
                             </div>
 
@@ -194,7 +194,7 @@ print(f"Entanglement Results: {counts_entangled}")`}</pre>
                         <section className="py-8 border-t border-white/20 mt-12">
                             <h2 className="text-3xl font-bold text-white mb-4">Next Steps</h2>
                             <p className="text-lg leading-relaxed text-gray-300">
-                                Now that you've created your first quantum circuits, you can explore more complex quantum algorithms, learn about quantum gates in depth, and understand the theoretical foundations in our Theory section.
+                                Now that you&apos;ve created your first quantum circuits, you can explore more complex quantum algorithms, learn about quantum gates in depth, and understand the theoretical foundations in our Theory section.
                             </p>
                         </section>
                     </article>
