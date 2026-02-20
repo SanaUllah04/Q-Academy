@@ -524,7 +524,81 @@ export default function Theory() {
                     </article>
                 )}
 
-                {activeTopic !== "SuperPosition" && activeTopic !== "Quantization" && activeTopic !== "Vectors" && (
+                {activeTopic === "Entanglement" && (
+                    <article className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <header className="border-b border-white/20 pb-8 break-words">
+                            <h1 className="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                Quantum Entanglement
+                            </h1>
+                            <p className="text-2xl text-gray-300 font-light leading-relaxed">
+                                The &quot;Spooky Action at a Distance&quot;
+                            </p>
+                        </header>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">1. What is Entanglement?</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantum entanglement is a physical phenomenon that occurs when a group of particles are generated, interact, or share spatial proximity in a way such that the quantum state of each particle cannot be described independently of the state of the others, even when the particles are separated by a large distance.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In simpler terms, if two particles are entangled, measuring the state of one instantly determines the state of the other, no matter how far apart they are. Einstein famously called this <span className="text-white font-semibold">&quot;spooky action at a distance.&quot;</span>
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">2. The EPR Paradox and Bell&apos;s Theorem</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                In 1935, Albert Einstein, Boris Podolsky, and Nathan Rosen published a paper questioning the completeness of quantum mechanics. They argued that if particles could be entangled, there must be some &quot;hidden variables&quot; that determine the outcome of experiments before they are even performed.
+                            </p>
+                            <div className="bg-white/5 p-6 rounded-lg space-y-4 border border-white/10">
+                                <h3 className="text-xl font-semibold text-white">Bell&apos;s Discovery</h3>
+                                <p className="text-lg leading-relaxed text-gray-300">
+                                    Decades later, physicist John Bell proposed a way to test this. He showed that no theory of &quot;local hidden variables&quot; could reproduce all the predictions of quantum mechanics. Subsequent experiments have consistently proven Bell right and Einstein wrong: entanglement is real, and the universe is fundamentally non-local.
+                                </p>
+                            </div>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">3. Mathematical Representation</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                The most famous entangled state is the <span className="text-white font-semibold">Bell State</span>. For two qubits, it can be represented as:
+                            </p>
+                            <div className="bg-white/5 p-6 rounded-lg font-mono text-center text-xl text-white border border-white/10">
+                                |Φ⁺⟩ = (1/√2) (|00⟩ + |11⟩)
+                            </div>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                This equation tells us that the system is in a superposition of both qubits being 0 and both qubits being 1. If you measure one qubit and find it to be 0, the other qubit <em className="italic">must</em> also be 0, instantly.
+                            </p>
+                        </section>
+
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white">4. Applications in Quantum Computing</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Entanglement is not just a curiosity; it is a resource that powers quantum technologies:
+                            </p>
+                            <ul className="list-disc pl-6 space-y-4 text-lg text-gray-300">
+                                <li>
+                                    <strong className="text-white">Quantum Teleportation:</strong> Transferring the quantum state of a particle to another distant particle using entanglement and classical communication.
+                                </li>
+                                <li>
+                                    <strong className="text-white">Superdense Coding:</strong> Sending two classical bits of information by transmitting only one entangled qubit.
+                                </li>
+                                <li>
+                                    <strong className="text-white">Quantum Cryptography:</strong> Using entanglement to create unbreakable encryption keys (E91 protocol).
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section className="py-8 border-t border-white/20 mt-12">
+                            <h2 className="text-3xl font-bold text-white mb-4">Conclusion</h2>
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Quantum entanglement challenges our deepest intuitions about space and time. It shows us that the universe is interconnected in ways that classical physics cannot explain. As we learn to harness this mysterious connection, we unlock the doors to a new era of communication and computation.
+                            </p>
+                        </section>
+                    </article>
+                )}
+
+                {activeTopic !== "SuperPosition" && activeTopic !== "Quantization" && activeTopic !== "Vectors" && activeTopic !== "Entanglement" && (
                     <div className="flex flex-col items-center justify-center h-full space-y-4 opacity-50">
                         <div className="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center">
                             <span className="text-2xl">?</span>
