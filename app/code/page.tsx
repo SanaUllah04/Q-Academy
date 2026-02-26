@@ -53,18 +53,27 @@ export default function Code() {
                             <h2 className="text-3xl font-bold text-white">Environment Setup</h2>
 
                             <p className="text-lg leading-relaxed text-gray-300">
-                                Quantum programming uses Python. Make sure you have <strong>Python&nbsp;3.9+</strong> installed and
-                                create an isolated environment so libraries don't conflict. For example:
+                                Quantum programming uses Python. Make sure you have <strong>Python&nbsp;3.9+</strong> installed.
                             </p>
 
+                            <p className="text-lg leading-relaxed text-gray-300"> 
+                                <strong>1. Create an isolated environment so libraries don't conflict.</strong> </p>
+
                             <div className="bg-white/5 p-6 rounded-lg font-mono text-white border border-white/10">
-                                <code>python -m venv qiskit-env   # create env</code><br/>
-                                <code>qiskit-env\Scripts\activate  # Windows</code><br/>
-                                <code>source qiskit-env/bin/activate  # macOS/Linux</code>
+                                <code>python -m venv qiskit-env   </code><br/>
                             </div>
 
+                            <p  className="text-lg leading-relaxed text-gray-300"> 
+                                <strong>2. Commands to Activate the virtual environment.</strong> </p>
+
+                            <div className="bg-white/5 p-6 rounded-lg font-mono text-white border border-white/10">
+                                <code> <b> Windows:</b> &emsp;&emsp;&emsp;&emsp;&emsp; qiskit-env\Scripts\activate  </code><br/>
+                                <code> <b> MacOS/Linux:</b> &emsp; source qiskit-env/bin/activate  </code>
+                            </div>
+
+
                             <p className="text-lg leading-relaxed text-gray-300">
-                                <strong>Installing Qiskit and Related Quantum Computing Packages</strong>
+                                <strong>3. Installing Qiskit and Related Quantum Computing Packages</strong>
                             </p>
 
                             <div className="bg-white/5 p-6 rounded-lg font-mono text-white border border-white/10">
@@ -72,7 +81,7 @@ export default function Code() {
                             </div>
 
                             <p className="text-lg leading-relaxed text-gray-300">
-                                You can verify that everything is working by running:</p>
+                                <strong>4. You can verify that everything is working by running: </strong></p> 
                             <div className="bg-white/5 p-6 rounded-lg font-mono text-white border border-white/10">
                                 <code>python -c "import qiskit; print(qiskit.__qiskit_version__)"</code>
                             </div>
@@ -90,8 +99,7 @@ export default function Code() {
                             </p>
 
                             <p className="text-lg leading-relaxed text-gray-300">
-                                Now you’re ready to write your first circuit. Use the "Hello World" section on the left,
-                                or open a Python REPL, import <code>qiskit</code>, and experiment with <code>QuantumCircuit</code>.
+                                Now you’re ready to write your first circuit.
                             </p>
                         </section>
                     </article>
