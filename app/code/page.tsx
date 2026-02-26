@@ -7,6 +7,9 @@ export default function Code() {
 
     const modules = [
         { id: "GetStarted", label: "Get Started" },
+        { id: "HelloWorld", label: "Hello World" },
+        { id: "Superposition", label: "Superposition" },
+        { id: "Entanglement", label: "Entanglement" },
     ];
 
     return (
@@ -47,7 +50,7 @@ export default function Code() {
                         </header>
 
                         <section className="space-y-6">
-                            <h2 className="text-3xl font-bold text-white">1. Environment Setup</h2>
+                            <h2 className="text-3xl font-bold text-white">Environment Setup</h2>
                             <p className="text-lg leading-relaxed text-gray-300">
                                 Before coding, ensure you have the library installed:
                             </p>
@@ -55,11 +58,19 @@ export default function Code() {
                                 <code>pip install qiskit qiskit-aer</code>
                             </div>
                         </section>
+                    </article>
+                )}
 
+                {activeModule === "HelloWorld" && (
+                    <article className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <header className="border-b border-white/20 pb-8 break-words">
+                            <h1 className="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                Hello World: Your First Quantum Circuit
+                            </h1>
+                        </header>
                         <section className="space-y-6">
-                            <h2 className="text-3xl font-bold text-white">2. Hello World: Your First Quantum Circuit</h2>
                             <p className="text-lg leading-relaxed text-gray-300">
-                                In quantum computing, &quot;Hello World&quot; is creating a single qubit, leaving it in its default state |0⟩, and measuring it.
+                                In quantum computing, “Hello World” is creating a single qubit, leaving it in its default state |0⟩, and measuring it.
                             </p>
 
                             <div className="pl-6 border-l-2 border-white/20 space-y-4">
@@ -93,9 +104,17 @@ print(f"Results: {counts}")`}</pre>
                                 </ul>
                             </div>
                         </section>
+                    </article>
+                )}
 
+                {activeModule === "Superposition" && (
+                    <article className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <header className="border-b border-white/20 pb-8 break-words">
+                            <h1 className="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                Superposition: The Hadamard Gate
+                            </h1>
+                        </header>
                         <section className="space-y-6">
-                            <h2 className="text-3xl font-bold text-white">3. Superposition: The Hadamard Gate</h2>
                             <p className="text-lg leading-relaxed text-gray-300">
                                 To put a qubit into superposition (where it is both 0 and 1 simultaneously), we use the Hadamard (H) gate.
                             </p>
@@ -128,13 +147,21 @@ print(f"Superposition Results: {counts_super}")`}</pre>
                                 <h3 className="text-2xl font-semibold text-white">Explanation:</h3>
                                 <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
                                     <li><strong className="text-white">qc.h(0)</strong>: This rotates the qubit&apos;s state.</li>
-                                    <li><strong className="text-white">Result</strong>: You will see roughly <code className="bg-white/10 px-2 py-1 rounded">{'{"0": 500, "1": 500}'}</code>. The qubit is now a &quot;fair coin flip,&quot; representing a true random distribution.</li>
+                                    <li><strong className="text-white">Result</strong>: You will see roughly <code className="bg-white/10 px-2 py-1 rounded">{'{"0": 500, "1": 500}'}</code>. The qubit is now a “fair coin flip,” representing a true random distribution.</li>
                                 </ul>
                             </div>
                         </section>
+                    </article>
+                )}
 
+                {activeModule === "Entanglement" && (
+                    <article className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <header className="border-b border-white/20 pb-8 break-words">
+                            <h1 className="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                Entanglement: The Bell State
+                            </h1>
+                        </header>
                         <section className="space-y-6">
-                            <h2 className="text-3xl font-bold text-white">4. Entanglement: The Bell State</h2>
                             <p className="text-lg leading-relaxed text-gray-300">
                                 Entanglement is a correlation where the state of one qubit depends on another, regardless of distance. We create this using a Hadamard gate and a CNOT (Controlled-NOT) gate.
                             </p>
@@ -143,7 +170,7 @@ print(f"Superposition Results: {counts_super}")`}</pre>
                                 <h3 className="text-2xl font-semibold text-white">The Logic:</h3>
                                 <ul className="list-disc pl-6 space-y-2 text-lg text-gray-300">
                                     <li>Put Qubit 0 into superposition (H gate).</li>
-                                    <li>Use Qubit 0 as a &quot;control&quot; to flip Qubit 1 (CNOT gate).</li>
+                                    <li>Use Qubit 0 as a “control” to flip Qubit 1 (CNOT gate).</li>
                                 </ul>
                             </div>
 
@@ -176,26 +203,6 @@ print(f"Entanglement Results: {counts_entangled}")`}</pre>
                                     <li>Notice that you almost never see 01 or 10. This means if you measure the first qubit and find it is 0, you instantly know the second qubit is also 0, even before measuring it.</li>
                                 </ul>
                             </div>
-                        </section>
-
-                        <section className="space-y-6">
-                            <h2 className="text-3xl font-bold text-white">5. Summary of States</h2>
-                            <p className="text-lg leading-relaxed text-gray-300">
-                                The state we created in step 4 is the Bell State |Φ⁺⟩:
-                            </p>
-                            <div className="bg-white/5 p-4 rounded-lg font-mono text-center text-xl text-white border border-white/10">
-                                |Φ⁺⟩ = (|00⟩ + |11⟩) / √2
-                            </div>
-                            <p className="text-lg leading-relaxed text-gray-300">
-                                This is one of the four maximally entangled two-qubit states, forming the foundation for quantum teleportation, superdense coding, and quantum cryptography protocols.
-                            </p>
-                        </section>
-
-                        <section className="py-8 border-t border-white/20 mt-12">
-                            <h2 className="text-3xl font-bold text-white mb-4">Next Steps</h2>
-                            <p className="text-lg leading-relaxed text-gray-300">
-                                Now that you&apos;ve created your first quantum circuits, you can explore more complex quantum algorithms, learn about quantum gates in depth, and understand the theoretical foundations in our Theory section.
-                            </p>
                         </section>
                     </article>
                 )}
