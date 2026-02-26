@@ -51,12 +51,48 @@ export default function Code() {
 
                         <section className="space-y-6">
                             <h2 className="text-3xl font-bold text-white">Environment Setup</h2>
+
                             <p className="text-lg leading-relaxed text-gray-300">
-                                Before coding, ensure you have the library installed:
+                                Quantum programming uses Python. Make sure you have <strong>Python&nbsp;3.9+</strong> installed and
+                                create an isolated environment so libraries don't conflict. For example:
                             </p>
+
                             <div className="bg-white/5 p-6 rounded-lg font-mono text-white border border-white/10">
-                                <code>pip install qiskit qiskit-aer</code>
+                                <code>python -m venv qiskit-env   # create env</code><br/>
+                                <code>qiskit-env\Scripts\activate  # Windows</code><br/>
+                                <code>source qiskit-env/bin/activate  # macOS/Linux</code>
                             </div>
+
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                <strong>Installing Qiskit and Related Quantum Computing Packages</strong>
+                            </p>
+
+                            <div className="bg-white/5 p-6 rounded-lg font-mono text-white border border-white/10">
+                                <code>pip install qiskit qiskit-aer qiskit-ibmq-provider</code>
+                            </div>
+
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                You can verify that everything is working by running:</p>
+                            <div className="bg-white/5 p-6 rounded-lg font-mono text-white border border-white/10">
+                                <code>python -c "import qiskit; print(qiskit.__qiskit_version__)"</code>
+                            </div>
+
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                It should print a dictionary containing versions for Terra, Aer, Ignis, etc. If you see an
+                                error, double‑check that your virtual environment is activated.
+                            </p>
+
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Optionally, create a free IBM Quantum account at&nbsp;
+                                <a href="https://quantum-computing.ibm.com" className="text-blue-400 underline" target="_blank" rel="noreferrer">
+                                    quantum-computing.ibm.com
+                                </a>&nbsp;and run <code>from qiskit_ibmq import IBMQ; IBMQ.save_account('TOKEN')</code> to store your API key.
+                            </p>
+
+                            <p className="text-lg leading-relaxed text-gray-300">
+                                Now you’re ready to write your first circuit. Use the "Hello World" section on the left,
+                                or open a Python REPL, import <code>qiskit</code>, and experiment with <code>QuantumCircuit</code>.
+                            </p>
                         </section>
                     </article>
                 )}
