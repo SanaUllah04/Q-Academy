@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Search, Bell, Calendar, Filter, BookOpen, Lightbulb, Rocket, FileText, Info, Star, GraduationCap, Newspaper, BarChart, Clock, Sparkles } from 'lucide-react';
@@ -14,24 +16,31 @@ const routes: { name: string; path: string; icon: LucideIcon }[] = [
 
 export default function Page() {
     return (
-        <div className="min-h-screen bg-background text-foreground">
+        <div className="min-h-screen bg-[#030307] text-slate-100 relative overflow-hidden font-sans">
+            {/* Background Effects */}
+            <div className="absolute inset-0 cyber-grid pointer-events-none z-[1]" />
+            <div className="aurora-orb aurora-cyan w-[500px] h-[500px] -top-40 -left-40 opacity-[0.18]" />
+            <div className="aurora-orb aurora-purple w-[600px] h-[600px] top-[20%] right-[-200px] opacity-[0.18]" />
+            <div className="aurora-orb aurora-pink w-[400px] h-[400px] bottom-[-100px] left-[10%] opacity-[0.12]" />
+
             {/* Navigation */}
-            <nav className="px-8 py-4">
-                <div className="max-w-7xl mx-auto bg-black border border-white rounded-2xl px-6 py-3 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                            <span className="text-black font-bold text-lg">Q</span>
+            <nav className="px-6 py-6 relative z-10 max-w-7xl mx-auto">
+                <div className="backdrop-blur-md bg-white/[0.01] border border-white/[0.08] rounded-2xl px-6 py-4 flex items-center justify-between shadow-[0_4px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.05)]">
+                    <div className="flex items-center gap-3 group cursor-pointer">
+                        <div className="w-9 h-9 bg-gradient-to-tr from-[#00f2fe] to-[#7f00ff] rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(0,242,254,0.3)] transition-transform duration-300 group-hover:rotate-12">
+                            <span className="text-white font-black text-xl tracking-wider">Q</span>
                         </div>
-                        <span className="text-xl font-semibold text-white">Academy</span>
+                        <span className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Academy</span>
                     </div>
 
-                    <div className="hidden lg:flex items-center gap-4">
+                    <div className="hidden lg:flex items-center gap-1">
                         {routes.map((route) => (
                             <Link
                                 key={route.path}
                                 href={route.path}
-                                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition font-medium"
+                                className="px-4 py-2 text-slate-400 hover:text-white rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/[0.04] transition-all duration-300 font-medium text-sm flex items-center gap-2"
                             >
+                                <route.icon className="w-4 h-4 opacity-75" />
                                 {route.name}
                             </Link>
                         ))}
@@ -39,7 +48,7 @@ export default function Page() {
 
                     <Link
                         href="/auth"
-                        className="px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition font-medium"
+                        className="btn-premium px-6 py-2.5 text-black font-semibold text-sm rounded-xl shadow-[0_4px_20px_rgba(0,242,254,0.15)] flex items-center gap-2"
                     >
                         Start Learning
                     </Link>
@@ -47,136 +56,149 @@ export default function Page() {
             </nav>
 
             {/* Hero Section */}
-            <div className="max-w-7xl mx-auto px-8 pt-16 pb-12">
-                <div className="text-center mb-12">
+            <div className="max-w-7xl mx-auto px-6 pt-16 pb-20 relative z-10">
+                <div className="text-center mb-16 max-w-4xl mx-auto">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00f2fe]/20 bg-[#00f2fe]/5 text-[#00f2fe] text-xs font-semibold uppercase tracking-wider mb-6 animate-pulse shadow-[0_0_15px_rgba(0,242,254,0.1)]">
+                        <Sparkles className="w-3.5 h-3.5" /> Unleash Quantum Potential
+                    </div>
 
-
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.08] tracking-tight">
                         Welcome to<br />
-                        <span className="text-white decoration-white decoration-2">Q-Academy</span>
+                        <span className="bg-gradient-to-r from-[#00f2fe] via-[#7f00ff] to-[#e100ff] bg-clip-text text-transparent text-glow-cyan">Q-Academy</span>
                     </h1>
 
-                    <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-                        Explore quantum computing through comprehensive articles, research papers, hands-on projects, and theoretical concepts. Your journey into quantum technology starts here.
+                    <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                        Explore quantum computing through interactive courses, research papers, hands-on algorithms, and theoretical concepts. Your journey into quantum technology starts here.
                     </p>
 
-                    <div className="flex items-center justify-center gap-4 mb-12">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                         <Link
                             href="/auth"
-                            className="px-8 py-4 bg-white text-black rounded-xl hover:bg-gray-200 transition flex items-center gap-2 font-medium"
+                            className="btn-premium w-full sm:w-auto px-8 py-4 text-black font-bold rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(0,242,254,0.25)] transition-all"
                         >
                             Start Learning <ArrowRight className="w-5 h-5" />
                         </Link>
                         <Link
                             href="/about"
-                            className="px-8 py-4 bg-black border border-white text-white rounded-xl hover:bg-white/10 transition flex items-center gap-2 font-medium"
+                            className="btn-premium-outline w-full sm:w-auto px-8 py-4 text-white font-semibold rounded-xl flex items-center justify-center gap-2 transition-all"
                         >
                             Learn More <ArrowRight className="w-5 h-5" />
                         </Link>
                     </div>
 
                     {/* Quick Access Cards */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                         <Link
                             href="/articles"
-                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
+                            className="glass-panel-cyan rounded-2xl p-6 transition-all duration-300 group text-left relative overflow-hidden"
                         >
-                            <div className="mb-4 text-white">
-                                <Newspaper className="w-8 h-8" strokeWidth={1} />
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#00f2fe]/10 to-transparent rounded-bl-full pointer-events-none" />
+                            <div className="mb-5 w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-[#00f2fe] group-hover:scale-110 transition-transform duration-300">
+                                <Newspaper className="w-6 h-6" strokeWidth={1.5} />
                             </div>
-                            <h3 className="font-semibold text-white group-hover:underline transition">Articles</h3>
-                            <p className="text-sm text-gray-500 mt-1">Read latest insights</p>
+                            <h3 className="text-xl font-bold text-white group-hover:text-[#00f2fe] transition-colors flex items-center gap-1.5">
+                                Articles <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                            </h3>
+                            <p className="text-sm text-slate-400 mt-2">Read the latest breakthroughs and quantum insights from active researchers.</p>
                         </Link>
 
                         <Link
                             href="/projects"
-                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
+                            className="glass-panel rounded-2xl p-6 transition-all duration-300 group text-left relative overflow-hidden"
                         >
-                            <div className="mb-4 text-white">
-                                <Rocket className="w-8 h-8" strokeWidth={1} />
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-white/5 to-transparent rounded-bl-full pointer-events-none" />
+                            <div className="mb-5 w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-300 group-hover:scale-110 transition-transform duration-300">
+                                <Rocket className="w-6 h-6" strokeWidth={1.5} />
                             </div>
-                            <h3 className="font-semibold text-white group-hover:underline transition">Projects</h3>
-                            <p className="text-sm text-gray-500 mt-1">Hands-on work</p>
+                            <h3 className="text-xl font-bold text-white group-hover:text-[#7f00ff] transition-colors flex items-center gap-1.5">
+                                Projects <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                            </h3>
+                            <p className="text-sm text-slate-400 mt-2">Hands-on tutorials on programming real quantum computers via Qiskit.</p>
                         </Link>
 
                         <Link
                             href="/theory"
-                            className="bg-black border border-white/20 rounded-xl p-6 hover:bg-white/5 transition group"
+                            className="glass-panel-purple rounded-2xl p-6 transition-all duration-300 group text-left relative overflow-hidden"
                         >
-                            <div className="mb-4 text-white">
-                                <BookOpen className="w-8 h-8" strokeWidth={1} />
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#7f00ff]/10 to-transparent rounded-bl-full pointer-events-none" />
+                            <div className="mb-5 w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-[#e100ff] group-hover:scale-110 transition-transform duration-300">
+                                <BookOpen className="w-6 h-6" strokeWidth={1.5} />
                             </div>
-                            <h3 className="font-semibold text-white group-hover:underline transition">Theory</h3>
-                            <p className="text-sm text-gray-500 mt-1">Deep dive</p>
+                            <h3 className="text-xl font-bold text-white group-hover:text-[#e100ff] transition-colors flex items-center gap-1.5">
+                                Theory <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                            </h3>
+                            <p className="text-sm text-slate-400 mt-2">Deep dive into vectors, wavefunctions, superposition, and entanglement math.</p>
                         </Link>
                     </div>
                 </div>
 
                 {/* Dashboard Preview */}
-                <div className="bg-black border border-white rounded-2xl overflow-hidden">
-                    <div className="flex">
+                <div className="glass-panel rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/[0.06]">
+                    <div className="flex flex-col lg:flex-row">
                         {/* Sidebar */}
-                        <div className="w-64 bg-black border-r border-white p-6">
-                            <div className="flex items-center gap-2 mb-8">
-                                <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
-                                    <span className="text-black font-bold text-sm">Q</span>
+                        <div className="w-full lg:w-64 bg-black/40 border-b lg:border-b-0 lg:border-r border-white/[0.06] p-6 flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center gap-2.5 mb-8">
+                                    <div className="w-7 h-7 bg-gradient-to-tr from-[#00f2fe] to-[#7f00ff] rounded-lg flex items-center justify-center shadow-[0_0_10px_rgba(0,242,254,0.2)]">
+                                        <span className="text-white font-extrabold text-sm">Q</span>
+                                    </div>
+                                    <span className="font-bold text-white tracking-tight text-md">Q-Academy Hub</span>
                                 </div>
-                                <span className="font-semibold text-white">Q-Academy</span>
+
+                                <div className="space-y-1 mb-8">
+                                    {routes.map((route) => (
+                                        <Link
+                                            key={route.path}
+                                            href={route.path}
+                                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/[0.03] transition-all duration-300 cursor-pointer text-slate-400 hover:text-white group border border-transparent hover:border-white/[0.03]"
+                                        >
+                                            <route.icon className="w-4.5 h-4.5 text-slate-500 group-hover:text-[#00f2fe] transition-colors" />
+                                            <span className="text-sm font-medium">{route.name}</span>
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
 
-                            <div className="space-y-1 mb-8">
-                                {routes.map((route) => (
-                                    <Link
-                                        key={route.path}
-                                        href={route.path}
-                                        className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition cursor-pointer text-gray-300 hover:text-white group"
-                                    >
-                                        <route.icon className="w-5 h-5 text-gray-500 group-hover:text-white transition" />
-                                        <span className="text-sm font-medium">{route.name}</span>
-                                    </Link>
-                                ))}
-                            </div>
-
-                            <div className="pt-6 border-t border-white/20">
-                                <p className="text-xs text-gray-500 mb-2">Quick Links</p>
-                                <div className="space-y-1">
-                                    <AppItem color="white" label="Quantum Basics" count="12" />
-                                    <AppItem color="white" label="Advanced Topics" count="8" />
-                                    <AppItem color="white" label="Research Hub" count="15" />
+                            <div className="pt-6 border-t border-white/[0.08]">
+                                <p className="text-xs font-bold text-slate-500 tracking-wider uppercase mb-3">Quick Links</p>
+                                <div className="space-y-1.5">
+                                    <AppItem color="cyan" label="Quantum Basics" count="12" />
+                                    <AppItem color="purple" label="Advanced Topics" count="8" />
+                                    <AppItem color="pink" label="Research Hub" count="15" />
                                 </div>
                             </div>
                         </div>
 
                         {/* Main Content */}
-                        <div className="flex-1 p-6">
+                        <div className="flex-1 p-6 md:p-8 bg-white/[0.005]">
                             {/* Header */}
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-bold">
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                                <div className="flex items-center gap-3.5">
+                                    <div className="w-11 h-11 bg-gradient-to-tr from-[#00f2fe]/20 to-[#7f00ff]/20 border border-[#00f2fe]/30 rounded-full flex items-center justify-center text-white font-bold shadow-[0_0_15px_rgba(0,242,254,0.1)]">
                                         Q
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-white flex items-center gap-2">
+                                        <h3 className="font-bold text-white flex items-center gap-2 text-lg">
                                             Quantum Learner
                                         </h3>
-                                        <p className="text-sm text-gray-500">Welcome to your learning dashboard</p>
+                                        <p className="text-xs text-slate-400">Welcome to your learning dashboard</p>
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-3">
-                                    <button className="p-2 hover:bg-white/10 rounded-lg transition">
-                                        <Search className="w-5 h-5 text-gray-400" />
+                                <div className="flex items-center gap-2 self-end md:self-auto">
+                                    <button className="p-2.5 hover:bg-white/[0.04] rounded-xl border border-transparent hover:border-white/[0.05] transition-all">
+                                        <Search className="w-4.5 h-4.5 text-slate-400 hover:text-white transition-colors" />
                                     </button>
-                                    <button className="p-2 hover:bg-white/10 rounded-lg transition relative">
-                                        <Bell className="w-5 h-5 text-gray-400" />
-                                        <span className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full"></span>
+                                    <button className="p-2.5 hover:bg-white/[0.04] rounded-xl border border-transparent hover:border-white/[0.05] transition-all relative">
+                                        <Bell className="w-4.5 h-4.5 text-slate-400 hover:text-white transition-colors" />
+                                        <span className="absolute top-2 right-2 w-2 h-2 bg-gradient-to-r from-red-500 to-pink-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.5)]"></span>
                                     </button>
-                                    <button className="p-2 hover:bg-white/10 rounded-lg transition">
-                                        <Calendar className="w-5 h-5 text-gray-400" />
+                                    <button className="p-2.5 hover:bg-white/[0.04] rounded-xl border border-transparent hover:border-white/[0.05] transition-all">
+                                        <Calendar className="w-4.5 h-4.5 text-slate-400 hover:text-white transition-colors" />
                                     </button>
                                     <Link
                                         href="/code"
-                                        className="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition font-medium text-sm"
+                                        className="ml-2 px-4 py-2 bg-gradient-to-r from-[#00f2fe] to-[#0072ff] hover:shadow-[0_0_15px_rgba(0,242,254,0.3)] text-black rounded-xl font-bold text-xs transition-all duration-300"
                                     >
                                         + New Course
                                     </Link>
@@ -184,88 +206,82 @@ export default function Page() {
                             </div>
 
                             {/* Dashboard Grid */}
-                            <div className="grid grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {/* Learning Progress Card */}
-                                <div className="bg-black border border-white rounded-xl p-4">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h4 className="font-semibold text-white flex items-center gap-2">
-                                            <BarChart className="w-4 h-4" /> Learning Progress
+                                <div className="glass-panel rounded-2xl p-5 border border-white/[0.05]">
+                                    <div className="flex items-center justify-between mb-5">
+                                        <h4 className="font-bold text-white flex items-center gap-2 text-sm uppercase tracking-wider">
+                                            <BarChart className="w-4 h-4 text-[#00f2fe]" /> Progress Tracker
                                         </h4>
-                                        <Link href="/code" className="text-sm text-gray-400 hover:text-white">See All</Link>
+                                        <Link href="/code" className="text-xs text-slate-400 hover:text-[#00f2fe] transition-colors">See All</Link>
                                     </div>
-                                    <div className="space-y-3">
+                                    <div className="space-y-4">
                                         <div>
-                                            <div className="flex justify-between text-sm mb-1">
-                                                <span className="text-gray-400">Completed</span>
-                                                <span className="text-gray-400">Total Courses</span>
+                                            <div className="flex justify-between text-xs mb-1">
+                                                <span className="text-slate-400 font-medium">Completed Courses</span>
+                                                <span className="text-[#00f2fe] font-bold">47%</span>
                                             </div>
-                                            <div className="flex justify-between items-end mb-2">
-                                                <span className="text-3xl font-bold text-white">7</span>
-                                                <span className="text-3xl font-bold text-gray-400">15</span>
+                                            <div className="flex justify-between items-end mb-2.5">
+                                                <span className="text-3xl font-black text-white">7</span>
+                                                <span className="text-sm font-semibold text-slate-400">of 15 modules</span>
                                             </div>
-                                            <div className="w-full bg-white/20 rounded-full h-2">
-                                                <div className="bg-white h-2 rounded-full" style={{ width: '47%' }}></div>
+                                            <div className="w-full bg-white/[0.05] rounded-full h-2 border border-white/[0.02] p-[1px]">
+                                                <div className="bg-gradient-to-r from-[#00f2fe] to-[#0072ff] h-1.5 rounded-full shadow-[0_0_10px_rgba(0,242,254,0.4)]" style={{ width: '47%' }}></div>
                                             </div>
-                                            <p className="text-xs text-gray-500 mt-1">47% courses completed</p>
                                         </div>
 
-                                        <div className="space-y-2 pt-2">
-                                            <CourseItem title="Quantum Mechanics Basics" status="In Progress" statusColor="white" />
-                                            <CourseItem title="Quantum Algorithms" status="Completed" statusColor="white" />
+                                        <div className="space-y-2.5 pt-3 border-t border-white/[0.06]">
+                                            <CourseItem title="Quantum Mechanics Basics" status="In Progress" statusColor="cyan" />
+                                            <CourseItem title="Quantum Algorithms" status="Completed" statusColor="green" />
                                             <CourseItem title="Quantum Cryptography" status="Not Started" statusColor="gray" />
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Featured Content Card */}
-                                <div className="bg-black border border-white rounded-xl p-4">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h4 className="font-semibold text-white flex items-center gap-2">
-                                            <Sparkles className="w-4 h-4" /> Featured Content
+                                <div className="glass-panel rounded-2xl p-5 border border-white/[0.05]">
+                                    <div className="flex items-center justify-between mb-5">
+                                        <h4 className="font-bold text-white flex items-center gap-2 text-sm uppercase tracking-wider">
+                                            <Sparkles className="w-4 h-4 text-[#e100ff]" /> Spotlights
                                         </h4>
-                                        <Link href="/articles" className="text-sm text-gray-400 hover:text-white">See All</Link>
+                                        <Link href="/articles" className="text-xs text-slate-400 hover:text-[#e100ff] transition-colors">See All</Link>
                                     </div>
 
                                     <div className="space-y-4">
-                                        <div>
-                                            <div className="flex items-center justify-between mb-2">
-                                                <span className="font-medium text-white">Latest Research Papers</span>
-                                                <span className="text-xs bg-white text-black px-2 py-1 rounded">New</span>
+                                        <div className="p-3 bg-white/[0.02] border border-white/[0.04] rounded-xl">
+                                            <div className="flex items-center justify-between mb-1.5">
+                                                <span className="font-bold text-white text-sm truncate">Recent Publications</span>
+                                                <span className="text-[10px] bg-gradient-to-r from-[#7f00ff] to-[#e100ff] text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider shadow-[0_0_8px_rgba(127,0,255,0.3)]">New</span>
                                             </div>
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <span className="text-sm text-gray-500">Quantum Computing Advances</span>
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="text-xs text-slate-400 truncate">Quantum Computing Breakthroughs</span>
                                             </div>
-                                            <div className="flex items-center gap-1 text-xs text-gray-400 mb-2">
-                                                <div className="flex">
+                                            <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-3">
+                                                <div className="flex text-[#e100ff]">
                                                     {[1, 2, 3, 4, 5].map((i) => (
-                                                        <Star key={i} className="w-3 h-3 fill-white text-white" />
+                                                        <Star key={i} className="w-3.5 h-3.5 fill-current text-[#e100ff]" />
                                                     ))}
                                                 </div>
-                                                <span className="ml-1">5.0 rating</span>
+                                                <span className="text-xs font-bold text-slate-300">5.0 Rating</span>
                                             </div>
-                                            <div className="text-xs text-gray-500 mb-2">Published</div>
-                                            <div className="text-sm text-gray-400 mb-3">January 15, 2026</div>
-                                            <div className="text-xs text-gray-500 mb-2">Description</div>
-                                            <p className="text-sm text-gray-400">Exploring the latest breakthroughs in quantum computing and their practical applications...</p>
+                                            <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                                                Exploring the latest physical systems in quantum computers and their ultimate computational limits.
+                                            </p>
+                                        </div>
 
-                                            <div className="mt-4 pt-4 border-t border-white/20">
-                                                <div className="text-xs text-gray-500 mb-2">Content Stats</div>
-                                                <div className="grid grid-cols-3 gap-4 text-center">
-                                                    <div>
-                                                        <div className="text-2xl font-bold text-white">32</div>
-                                                        <div className="text-xs text-gray-500">Articles</div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-2xl font-bold text-white">15</div>
-                                                        <div className="text-xs text-gray-500">Papers</div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-2xl font-bold text-white">8</div>
-                                                        <div className="text-xs text-gray-500">Projects</div>
-                                                    </div>
+                                        <div className="pt-2 border-t border-white/[0.06]">
+                                            <div className="grid grid-cols-3 gap-2 text-center">
+                                                <div className="p-1.5 bg-white/[0.01] rounded-lg border border-white/[0.03]">
+                                                    <div className="text-lg font-black text-white">32</div>
+                                                    <div className="text-[10px] text-slate-500 font-medium">Articles</div>
                                                 </div>
-                                                <div className="w-full bg-white/20 rounded-full h-2 mt-3">
-                                                    <div className="bg-white h-2 rounded-full" style={{ width: '65%' }}></div>
+                                                <div className="p-1.5 bg-white/[0.01] rounded-lg border border-white/[0.03]">
+                                                    <div className="text-lg font-black text-white">15</div>
+                                                    <div className="text-[10px] text-slate-500 font-medium">Papers</div>
+                                                </div>
+                                                <div className="p-1.5 bg-white/[0.01] rounded-lg border border-white/[0.03]">
+                                                    <div className="text-lg font-black text-white">8</div>
+                                                    <div className="text-[10px] text-slate-500 font-medium">Projects</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -273,55 +289,38 @@ export default function Page() {
                                 </div>
 
                                 {/* Study Schedule Card */}
-                                <div className="bg-black border border-white rounded-xl p-4">
+                                <div className="glass-panel rounded-2xl p-5 border border-white/[0.05] lg:col-span-1 md:col-span-2">
                                     <div className="flex items-center justify-between mb-4">
-                                        <h4 className="font-semibold text-white flex items-center gap-2">
-                                            <Calendar className="w-4 h-4" /> Study Schedule
+                                        <h4 className="font-bold text-white flex items-center gap-2 text-sm uppercase tracking-wider">
+                                            <Calendar className="w-4 h-4 text-[#7f00ff]" /> Study Calendar
                                         </h4>
-                                        <button className="text-sm text-gray-400 hover:text-white">See All</button>
+                                        <span className="text-xs text-slate-400 font-bold">Jan 2026</span>
                                     </div>
 
-                                    <div className="mb-4">
-                                        <div className="flex items-center justify-between mb-2">
-                                            <span className="text-sm font-medium">January 2026</span>
-                                            <div className="flex gap-2">
-                                                <button className="text-gray-400 hover:text-gray-600">‹</button>
-                                                <button className="text-gray-400 hover:text-gray-600">›</button>
-                                            </div>
+                                    <div className="mb-4 bg-white/[0.01] p-3 rounded-xl border border-white/[0.04]">
+                                        <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-slate-500 mb-2">
+                                            <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
                                         </div>
-                                        <div className="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-white">
-                                            <div className="text-gray-500">Su</div>
-                                            <div className="text-gray-500">Mo</div>
-                                            <div className="text-gray-500">Tue</div>
-                                            <div className="text-gray-500">Wed</div>
-                                            <div className="text-gray-500">Thu</div>
-                                            <div className="text-gray-500">Fri</div>
-                                            <div className="text-gray-500">Sat</div>
-                                            <div className="text-gray-400">12</div>
-                                            <div className="text-gray-400">13</div>
-                                            <div className="text-gray-400">14</div>
-                                            <div className="text-gray-400">15</div>
-                                            <div className="text-gray-400">16</div>
-                                            <div className="text-gray-400">17</div>
-                                            <div className="text-black font-medium bg-white rounded-lg py-1">19</div>
+                                        <div className="grid grid-cols-7 gap-1 text-center text-xs">
+                                            <div className="py-1 text-slate-600">12</div>
+                                            <div className="py-1 text-slate-600">13</div>
+                                            <div className="py-1 text-slate-600">14</div>
+                                            <div className="py-1 text-slate-600">15</div>
+                                            <div className="py-1 text-slate-600">16</div>
+                                            <div className="py-1 text-slate-600">17</div>
+                                            <div className="py-1 text-black font-extrabold bg-gradient-to-tr from-[#00f2fe] to-[#0072ff] rounded-lg shadow-[0_0_10px_rgba(0,242,254,0.3)]">19</div>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center justify-between mb-3">
+                                    <div className="flex gap-2 mb-4">
                                         <input
                                             type="text"
-                                            placeholder="Search..."
-                                            className="text-sm px-3 py-1 border border-white/20 bg-black text-white rounded-lg flex-1 mr-2"
+                                            placeholder="Search schedule..."
+                                            className="text-xs px-3 py-2 border border-white/[0.06] bg-black/40 text-white placeholder-slate-500 rounded-xl flex-1 focus:outline-none focus:border-[#00f2fe]/40 transition"
                                         />
-                                        <button className="p-1 hover:bg-white/10 rounded">
-                                            <Filter className="w-4 h-4 text-gray-400" />
+                                        <button className="p-2 hover:bg-white/[0.05] border border-white/[0.06] rounded-xl">
+                                            <Filter className="w-3.5 h-3.5 text-slate-400" />
                                         </button>
-                                    </div>
-
-                                    <div className="flex gap-2 mb-4 text-xs">
-                                        <button className="px-3 py-1 bg-white/20 text-white rounded-lg font-medium">Classes</button>
-                                        <button className="px-3 py-1 text-gray-400 hover:bg-white/10 rounded-lg">Projects</button>
-                                        <button className="px-3 py-1 text-gray-400 hover:bg-white/10 rounded-lg">Study</button>
                                     </div>
 
                                     <div className="space-y-3">
@@ -329,11 +328,13 @@ export default function Page() {
                                             title="Quantum Theory Session"
                                             time="2:00 - 3:30 PM (PKT)"
                                             status="Today"
+                                            color="cyan"
                                         />
                                         <SessionItem
                                             title="Research Paper Review"
                                             time="4:00 - 5:00 PM (PKT)"
                                             status="Upcoming"
+                                            color="purple"
                                         />
                                     </div>
                                 </div>
@@ -346,51 +347,69 @@ export default function Page() {
     );
 }
 
-function AppItem({ color, label, count }: { color: string; label: string; count: string }) {
-    const colors = {
-        blue: 'bg-white',
-        indigo: 'bg-white',
-        purple: 'bg-white'
+function AppItem({ color, label, count }: { color: 'cyan' | 'purple' | 'pink'; label: string; count: string }) {
+    const glowColors = {
+        cyan: 'bg-[#00f2fe] shadow-[0_0_8px_rgba(0,242,254,0.6)]',
+        purple: 'bg-[#7f00ff] shadow-[0_0_8px_rgba(127,0,255,0.6)]',
+        pink: 'bg-[#e100ff] shadow-[0_0_8px_rgba(225,0,255,0.6)]'
     };
 
     return (
-        <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition cursor-pointer">
-            <span className={`w-2 h-2 ${colors[color as keyof typeof colors]} rounded-full`}></span>
-            <span className="text-sm text-gray-300 flex-1">{label}</span>
-            <span className="text-xs text-gray-400">{count}</span>
+        <div className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/[0.03] transition-all cursor-pointer">
+            <span className={`w-2 h-2 rounded-full ${glowColors[color]}`}></span>
+            <span className="text-xs text-slate-300 font-medium flex-1">{label}</span>
+            <span className="text-[10px] text-slate-500 font-bold bg-white/[0.03] px-2 py-0.5 rounded-full border border-white/[0.05]">{count}</span>
         </div>
     );
 }
 
-function CourseItem({ title, status, statusColor }: { title: string; status: string; statusColor: string }) {
-    const colors = {
-        blue: 'bg-white/10 text-blue-300',
-        emerald: 'bg-white/10 text-emerald-300',
-        gray: 'bg-white/5 text-gray-400',
-        white: 'bg-white text-black'
+function CourseItem({ title, status, statusColor }: { title: string; status: string; statusColor: 'cyan' | 'green' | 'gray' }) {
+    const statusStyles = {
+        cyan: 'bg-[#00f2fe]/10 text-[#00f2fe] border border-[#00f2fe]/20',
+        green: 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20',
+        gray: 'bg-white/[0.03] text-slate-400 border border-white/[0.06]'
+    };
+
+    const bulletStyles = {
+        cyan: 'text-[#00f2fe]',
+        green: 'text-emerald-400',
+        gray: 'text-slate-500'
     };
 
     return (
-        <div className="flex items-center justify-between text-xs">
-            <div>
-                <span className="text-white">●</span>
-                <span className="text-gray-300 ml-2 font-medium">{title}</span>
+        <div className="flex items-center justify-between text-xs p-2 hover:bg-white/[0.02] border border-transparent hover:border-white/[0.03] rounded-lg transition-all">
+            <div className="flex items-center gap-2 truncate pr-2">
+                <span className={`font-black ${bulletStyles[statusColor]}`}>●</span>
+                <span className="text-slate-300 font-semibold truncate">{title}</span>
             </div>
-            <span className={`px-2 py-1 rounded text-xs font-medium ${colors[statusColor as keyof typeof colors]}`}>
+            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider shrink-0 ${statusStyles[statusColor]}`}>
                 {status}
             </span>
         </div>
     );
 }
 
-function SessionItem({ title, time, status }: { title: string; time: string; status: string }) {
+function SessionItem({ title, time, status, color }: { title: string; time: string; status: string; color: 'cyan' | 'purple' }) {
+    const styles = {
+        cyan: {
+            border: 'border-[#00f2fe]/20 hover:border-[#00f2fe]/30 bg-[#00f2fe]/[0.01]',
+            badge: 'bg-[#00f2fe] text-black shadow-[0_0_8px_rgba(0,242,254,0.3)]',
+            iconColor: 'text-[#00f2fe]'
+        },
+        purple: {
+            border: 'border-[#7f00ff]/20 hover:border-[#7f00ff]/30 bg-[#7f00ff]/[0.01]',
+            badge: 'bg-[#7f00ff] text-white shadow-[0_0_8px_rgba(127,0,255,0.3)]',
+            iconColor: 'text-[#7f00ff]'
+        }
+    };
+
     return (
-        <div className="border border-white/20 rounded-lg p-3">
-            <div className="flex items-start justify-between mb-2">
-                <h5 className="font-medium text-sm text-white">{title}</h5>
-                <span className="text-xs text-black bg-white px-2 py-0.5 rounded">{status}</span>
+        <div className={`border rounded-xl p-3.5 transition-all duration-300 ${styles[color].border}`}>
+            <div className="flex items-start justify-between gap-2 mb-2">
+                <h5 className="font-bold text-xs text-white leading-tight">{title}</h5>
+                <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full shrink-0 ${styles[color].badge}`}>{status}</span>
             </div>
-            <p className="text-xs text-gray-500">{time}</p>
+            <p className="text-[11px] text-slate-500 font-medium">{time}</p>
         </div>
     );
-}
+}

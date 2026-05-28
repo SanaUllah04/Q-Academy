@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
 export default function Theory() {
     const [activeTopic, setActiveTopic] = useState("SuperPosition");
@@ -16,11 +18,20 @@ export default function Theory() {
     ];
 
     return (
-        <div className="flex min-h-screen bg-black text-white font-sans">
+        <div className="flex min-h-screen bg-[#030307] text-slate-200 font-sans relative overflow-hidden">
+            {/* Background Effects */}
+            <div className="absolute inset-0 cyber-grid pointer-events-none z-[1]" />
+            <div className="aurora-orb aurora-cyan w-[400px] h-[400px] -top-40 -left-40 opacity-[0.1]" />
+            <div className="aurora-orb aurora-purple w-[400px] h-[400px] bottom-[-200px] right-[-200px] opacity-[0.1]" />
+
             {/* Sidebar */}
-            <div className="w-72 border-r border-white/20 flex flex-col h-screen sticky top-0 overflow-y-auto bg-black">
+            <div className="w-72 border-r border-white/[0.08] flex flex-col h-screen sticky top-0 overflow-y-auto bg-black/40 backdrop-blur-md z-10 relative">
                 <div className="p-6">
-                    <h2 className="text-2xl font-bold mb-8 text-white tracking-wider">THEORY</h2>
+                    <Link href="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300 mb-6 text-xs font-semibold group">
+                        <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" /> Back to Home
+                    </Link>
+                    <h2 className="text-2xl font-bold mb-8 text-white tracking-wider bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">THEORY</h2>
+
                     <ul className="space-y-3">
                         {topics.map((topic) => (
                             <li key={topic.id}>
