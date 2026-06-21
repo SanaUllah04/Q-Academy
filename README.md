@@ -4,6 +4,8 @@
 
 Welcome to **Q-Academy**, an open-source initiative designed to make quantum computing accessible to everyone. Whether you are a complete beginner or looking to deepen your understanding of quantum mechanics and programming, Q-Academy provides a structured learning path, resources, and hands-on projects.
 
+![Image Alt Text](app/media/frontend.png)
+
 ## 🚀 Overview
 
 Q-Academy is built to solve the challenge beginners face when starting with quantum coding. We provide a curated collection of educational materials, from theoretical concepts to practical implementation.
